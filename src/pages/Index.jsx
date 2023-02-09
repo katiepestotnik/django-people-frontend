@@ -63,7 +63,7 @@ export default function Index({ people, createPeople }) {
           value={form.title}
           onChange={handleChange}
         />
-        <button type="submit">Add Person</button>
+        <input type="submit" value="Submit"/>
       </form>
       {people ? loaded() : loading()}
     </section>

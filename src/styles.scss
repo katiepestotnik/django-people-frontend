@@ -1,8 +1,14 @@
 // --------------------------
 // VARIABLES
 // --------------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 $maincolor: black;
 $contrastcolor: white;
+
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
 
 @mixin white-text-black-bg {
   color: $contrastcolor;
@@ -24,6 +30,7 @@ nav {
   justify-content: flex-start;
 
   a {
+    text-decoration: none;
     @include white-text-black-bg;
     div {
       margin: 10px;
@@ -39,12 +46,17 @@ nav {
 section,
 div {
   form {
+    display: flex;
+    flex-direction: column;
     input {
       @include white-text-black-bg;
       padding: 10px;
       font-size: 1.1em;
       margin: 10px;
-
+      max-width: 300px;
+      &[type="submit"] {
+        max-width: 100px;
+      }
       &[type="submit"]:hover {
         @include black-test-white-bg;
       }
@@ -62,6 +74,7 @@ button#delete {
   margin: auto;
   font-size: 1.3em;
   padding: 10px;
+  max-width: 300px;
 }
 
 // --------------------------

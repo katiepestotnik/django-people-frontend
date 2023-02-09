@@ -2,42 +2,38 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
-import deployedApiUrl from "../config"
+
+
+// This is the moment you have been waiting for, lets connect Django to React!
+// const URL = "OurDjangoAPI"
+
 
 export default function Main() {
   const [people, setPeople] = useState(null);
 
-  const URL = deployedApiUrl
 
+  // INDEX
   const getPeople = async () => {
-    const data = await fetch(URL).then((res) => res.json());
-    setPeople(data);
+    // fetch - GET
+    setPeople();
   };
 
+  // CREATE
   const createPeople = async (person) => {
-    await fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(person),
-    });
+    // fetch - POST
     getPeople();
   };
 
+  // UPDATE
   const updatePeople = async (person, id) => {
-    await fetch(URL + id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(person),
-    });
+    // fetch - PUT
     getPeople();
   };
 
+
+  // DELETE
   const deletePeople = async (id) => {
-    await fetch(URL + id, { method: "DELETE" });
+    // fetch - DELETE
     getPeople();
   };
 
