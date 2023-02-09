@@ -297,7 +297,7 @@ Test the following:
 1. Navigate to `people-frontend/src/components/Main.jsx`
 
 2. Here you will see a placeholder variable for an API URL.
-   Enter your newly tested API - **localhost:8000/people**
+   Enter your newly tested API - **localhost:8000/people/**
 
 3. Complete the CRUD api calls using fetch() + Django API + person id
 
