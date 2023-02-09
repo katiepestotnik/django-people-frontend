@@ -285,12 +285,12 @@ Go to **localhost:8000/people/**
 
 Test the following:
 
-INDEX - GET /people
-CREATE - POST /people
+ - INDEX - GET /people
+ - CREATE - POST /people
 
-SHOW - GET /people/id
-UPDATE - PUT /people/id
-DELETE - DELETE /people/id
+ - SHOW - GET /people/id
+ - UPDATE - PUT /people/id
+ - DELETE - DELETE /people/id
 
 ## Connect your Frontend React APP
 
