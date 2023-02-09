@@ -281,7 +281,7 @@ urlpatterns = [
 
 `python3 manage.py runserver`
 
-Go to **localhost:8000/people**
+Go to **localhost:8000/people/**
 
 Test the following:
 
