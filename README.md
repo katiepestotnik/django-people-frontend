@@ -108,7 +108,7 @@ Navigate to **urls.py** inside of django_people.
 Add people_api to the existing list of URL patterns.
 
 ```py
-# campus_crud/urls.py
+# django_people/urls.py
 from django.urls import path, include
 from django.contrib import admin
 
