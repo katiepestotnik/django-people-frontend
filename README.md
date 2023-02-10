@@ -223,7 +223,7 @@ class PeopleSerializer(serializers.ModelSerializer):
 
 ## Create Class Based Views
 
-Your will need the following dependencies:
+You will need the following dependencies:
 
 ```py
 from rest_framework.views import APIView    # <- as super to your class
@@ -232,6 +232,8 @@ from rest_framework import status # <- to include status codes in your response
 
 from .serializers import PeopleSerializer # <- to format data to and from the database, enforces schema
 ```
+
+Navigate to `views.py` inside your people_api.
 
 Create your view classes based on this **REST** structure:
 
@@ -272,7 +274,7 @@ from django.urls import path
 from .views import People, PeopleDetail
 
 urlpatterns = [
-    path('', People.as_view(), name='people')
+    path('', People.as_view(), name='people'),
     path('<int:pk>', PeopleDetail.as_view(), name='people_detail')
 ]
 ```
@@ -299,7 +301,7 @@ Test the following:
 2. Here you will see a placeholder variable for an API URL.
    Enter your newly tested API - **localhost:8000/people/**
 
-3. Complete the CRUD api calls using fetch() + Django API + person id
+3. Complete all CRUD api calls in `Main` using fetch()
 
 Examples:
 
@@ -330,4 +332,4 @@ await fetch(URL + id, { method: "DELETE" });
 ```
 
 
-## Test your new FullStack DJango React APP! 
+## Test your new Full Stack DJango React APP! 
