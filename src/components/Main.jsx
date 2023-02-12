@@ -18,26 +18,36 @@ export default function Main() {
       const data = await response.json()
       setPeople(data)
   }
+  
+  const createPeople = async(person) => {
+    await fetch(URL,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'Application/json',
+        },
+        body: JSON.stringify(person)
+    })
+    getPeople()
+}
 
-  // CREATE
-  const createPeople = async (person) => {
-    // fetch - POST
-    getPeople();
-  };
+const updatePeople = async (person, id) => {
+  await fetch(URL + id, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': "Application/json"
+      },
+      body: JSON.stringify(person)
+  })
+  getPeople()
+}
 
-  // UPDATE
-  const updatePeople = async (person, id) => {
-    // fetch - PUT
-    getPeople();
-  };
 
-
-  // DELETE
-  const deletePeople = async (id) => {
-    // fetch - DELETE
-    getPeople();
-  };
-
+const deletePeople = async (id) => {
+  await fetch(URL + id, {
+      method: 'DELETE'
+  })
+  getPeople()
+}
   useEffect(() => {
     getPeople();
     console.log(people)

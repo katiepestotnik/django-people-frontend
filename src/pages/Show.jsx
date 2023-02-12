@@ -57,7 +57,7 @@ export default function Show({ people, updatePeople, deletePeople }) {
           value={editForm?.title}
           onChange={handleChange}
         />
-        <button type="submit">Add Person</button>
+        <button type="submit">Update Person</button>
       </form>
     </div>
   );
