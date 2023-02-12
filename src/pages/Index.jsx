@@ -29,7 +29,7 @@ export default function Index({ people, createPeople }) {
   const loaded = () =>
     people.map((person) => (
       <div key={person._id} className="person">
-        <Link to={`/people/${person._id}`}>
+        <Link to={`/people/${person.id}`}>
           <h1>{person.name}</h1>
         </Link>
         <img src={person.image} alt={person.name} />

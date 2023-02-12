@@ -3,7 +3,8 @@ import { useState } from "react";
 
 export default function Show({ people, updatePeople, deletePeople }) {
   const { id } = useParams();
-  const person = people.find((person) => person._id === id);
+  console.log(id)
+  const person = people.find((person) => parseInt(person.id) === parseInt(id))
   const navigate = useNavigate();
 
   const [editForm, setEditForm] = useState(person);
@@ -28,9 +29,9 @@ export default function Show({ people, updatePeople, deletePeople }) {
 
   return (
     <div className="person">
-      <h1>{person.name}</h1>
-      <h2>{person.title}</h2>
-      <img src={person.image} alt={person.name} />
+      <h1>{person?.name}</h1>
+      <h2>{person?.title}</h2>
+      <img src={person?.image} alt={person?.name} />
       <button id="DELETE" onClick={removePerson}>
         Delete
       </button>
@@ -39,21 +40,21 @@ export default function Show({ people, updatePeople, deletePeople }) {
           type="text"
           name="name"
           placeholder="name"
-          value={editForm.name}
+          value={editForm?.name}
           onChange={handleChange}
         />
         <input
           type="text"
           name="image"
           placeholder="image"
-          value={editForm.image}
+          value={editForm?.image}
           onChange={handleChange}
         />
         <input
           type="text"
           name="title"
           placeholder="title"
-          value={editForm.title}
+          value={editForm?.title}
           onChange={handleChange}
         />
         <button type="submit">Add Person</button>

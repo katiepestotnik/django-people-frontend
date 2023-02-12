@@ -4,19 +4,20 @@ import Index from "../pages/Index";
 import Show from "../pages/Show";
 
 
-// This is the moment you have been waiting for, lets connect Django to React!
-// const URL = "OurDjangoAPI"
+
+const URL = 'http://localhost:8000/people/'
 
 
 export default function Main() {
-  const [people, setPeople] = useState(null);
+  const [people, setPeople] = useState([]);
 
 
-  // INDEX
+  const URL = `http://localhost:8000/people/`
   const getPeople = async () => {
-    // fetch - GET
-    setPeople();
-  };
+      const response = await fetch(URL)
+      const data = await response.json()
+      setPeople(data)
+  }
 
   // CREATE
   const createPeople = async (person) => {
@@ -39,7 +40,8 @@ export default function Main() {
 
   useEffect(() => {
     getPeople();
-  });
+    console.log(people)
+  }, []);
 
   return (
     <main>
