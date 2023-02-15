@@ -87,3 +87,15 @@ img {
   border-radius: 90px;
   object-fit: cover;
 }
+
+button#update, delete {
+  @include white-text-black-bg;
+  display: block;
+  font-size: 1.3em;
+  padding: 10px;
+  max-width: 300px;
+  margin: 10px;
+}
+#delete {
+  
+}

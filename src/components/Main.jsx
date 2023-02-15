@@ -19,24 +19,26 @@ export default function Main() {
       setPeople(data)
   }
   
-  const createPeople = async(person) => {
+  const createPeople = async (person) => {
+    let formData = new FormData()
+    formData.append('name', person.name)
+    formData.append('image', person.image, person.image.name)
+    formData.append('title', person.title)
     await fetch(URL,{
         method: 'POST',
-        headers: {
-            'Content-Type': 'Application/json',
-        },
-        body: JSON.stringify(person)
+        body: formData
     })
     getPeople()
 }
 
 const updatePeople = async (person, id) => {
+  let formData = new FormData()
+  formData.append('name', person.name)
+  formData.append('image', person.image.name)
+  formData.append('title', person.title)
   await fetch(URL + id, {
       method: 'PUT',
-      headers: {
-          'Content-Type': "Application/json"
-      },
-      body: JSON.stringify(person)
+      body: formData
   })
   getPeople()
 }

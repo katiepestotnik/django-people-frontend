@@ -14,6 +14,12 @@ export default function Index({ people, createPeople }) {
       [evt.target.name]: evt.target.value,
     });
   };
+  const handleFileChange = (evt) => {
+    setForm({
+      ...form,
+      [evt.target.name]: evt.target.files[0], // <- we need to reference the file
+    });
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -50,11 +56,9 @@ export default function Index({ people, createPeople }) {
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="file"
           name="image"
-          placeholder="image"
-          value={form.image}
-          onChange={handleChange}
+          onChange={handleFileChange}
         />
         <input
           type="text"

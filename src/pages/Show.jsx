@@ -15,6 +15,12 @@ export default function Show({ people, updatePeople, deletePeople }) {
       [evt.target.name]: evt.target.value,
     });
   };
+  const handleFileChange = (evt) => {
+    setEditForm({
+      ...editForm,
+      [evt.target.name]: evt.target.files[0],
+    });
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -44,11 +50,9 @@ export default function Show({ people, updatePeople, deletePeople }) {
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="file"
           name="image"
-          placeholder="image"
-          value={editForm?.image}
-          onChange={handleChange}
+          onChange={handleFileChange}
         />
         <input
           type="text"
